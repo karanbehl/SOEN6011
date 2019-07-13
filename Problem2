@@ -1,0 +1,13 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\title{Problem 2}
+\author{Karan}
+\date{July 2019}
+
+\begin{document}
+\maketitle
+\section{Requirements}The requirements for the function, F9 : $x^y$ are given below : \\
+\subsection{1:} Calculator should take two inputs which are 'x' and 'y'.
+\subsection{2:} Calculator has to check input type and if it is not numberical then it will give and error.
+\subsection{3:} Calculator should take only real numbers as input.
+\end{document}

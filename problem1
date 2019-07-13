@@ -1,0 +1,16 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\begin{document}
+
+\section{Desciption}
+Given to us is \[(x,y)\] here x and y both are real number variables in statement.
+
+\section{Graph,Domain and Range}
+Domain of x is \[ (-\infty,\infty )\]
+Domain of y is \[(-\infty,\infty )\]
+
+The graph for x^y is below
+\begin{center}
+			\includegraphics[width=0.35\columnwidth]{graph1.png}
+\end{center}
+\end{document}
