@@ -1,71 +1,63 @@
-// The Model performs all the calculations needed
-// and that is it. It doesn't know the View
-// exists
+/**
+* Model performs all calculations only.
+* @author  Karan Behl
+* @version 1.0
+* @since   2019-07-29 
+*/
 
 public class Model {
 
-	// Holds the value of the sum of the numbers
-	// entered in the view
-
-	private double calculationaddValue, calculationsubValue;
-
-	// Iterative solution to calculate pow(x, n) using binary operators
-	public void addTwoNumbers(int x, int y){
-		
-		
-		int pow = 1;
-
+	
+	private static double calculation;
+	
+	/**
+	   * This method is Iterative solution to calculate pow(x, y) using binary operators
+	   * @param x(int), y(int)
+	   * @return pow(double).
+	   */
+	public static double power(int x, int y){
+		double pow = 1;
 		// do till n is not zero
-		while (y > 0)
-		{
+		while (y > 0){
 			// if n is odd, multiply result by x
 			if ((y & 1) == 1) {
 				pow *= x;
-			}
-
+				}
 			// divide n by 2
 			y = y >> 1;
-
 			// multiply x by itself
 			x = x * x;
-		}
-
-		calculationaddValue = pow;
-
-	}
-
-	
-	
-	// Iterative solution to calculate pow(x, n) using binary operators
-		public static double power(int x, int y)
-		{
-			double pow = 1;
-
-			// do till n is not zero
-			while (y > 0)
-			{
-				// if n is odd, multiply result by x
-				if ((y & 1) == 1) {
-					pow *= x;
-				}
-
-				// divide n by 2
-				y = y >> 1;
-
-				// multiply x by itself
-				x = x * x;
 			}
-
-			// return result
-			return pow;
+		calculation = pow;
+		// return result
+		return pow;
 		}
-
-
-
-	public double getCalculationaddValue(){
-
-		return calculationaddValue;
-
+	
+	/**
+	   * This method is for checking y is positive or negative
+	   * It performs calculation according to input
+	   * @param firstNumber(int), secondNumber(int)
+	   * @return (double).
+	   */
+	public static double functionalCal(int firstNumber, int secondNumber)
+	{
+		if(secondNumber>=0){
+			power(firstNumber, secondNumber);
+			return getCalculation();
+		}
+		else{
+			int temp= Math.abs(secondNumber);
+			power(firstNumber, temp);
+			return (1/getCalculation());
+		}
+	}
+	
+	/**
+	   * This method is used to get calculated value of function
+	   * @return (double).
+	   */
+	public static double getCalculation(){
+		return calculation;
 	}
 
 
