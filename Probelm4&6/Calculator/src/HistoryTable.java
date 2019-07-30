@@ -16,11 +16,10 @@ import java.util.ArrayList;
 * @since   2019-07-29 
 */
 public class HistoryTable extends JFrame {
-    private boolean DEBUG = false;
      private ArrayList<HistoryHelper> historyList;
     public HistoryTable(ArrayList<HistoryHelper> historyList) {
         super("History");
-        this.historyList=new ArrayList<HistoryHelper>(historyList);
+        this.historyList=new ArrayList<>(historyList);
         MyTableModel myModel = new MyTableModel();
         JTable table = new JTable(myModel);
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
@@ -32,6 +31,7 @@ public class HistoryTable extends JFrame {
         getContentPane().add(scrollPane, BorderLayout.CENTER);
 
         addWindowListener(new WindowAdapter() {
+        	@Override
             public void windowClosing(WindowEvent e) {
                 System.exit(0);
             }
@@ -74,9 +74,11 @@ public class HistoryTable extends JFrame {
   		      return temp;
   		   }
   		   // needed to show column names in JTable
+  		   @Override
   		   public String getColumnName(int col) {
   		      return columnNames[col];
   		   }
+  		   @Override
   		   public Class getColumnClass(int col) {
   		      if (col == 2) {
   		         return Double.class;

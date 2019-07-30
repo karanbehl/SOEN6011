@@ -1,8 +1,5 @@
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.FocusTraversalPolicy;
+
 import java.awt.GridLayout;
-import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -13,24 +10,21 @@ import javax.swing.*;
 
 
 /**
-* This is Main class.Its only job is to display what the user sees.
-* It performs no calculation but instead passes information entered by user.
+* Its only job is to display what the user sees.It performs no calculation but instead passes information entered by user.
 * @author  Karan Behl
 * @version 1.0
 * @since   2019-07-29 
 */
 
 public class View extends JFrame{
-
 	private JLabel displayTextX = new JLabel("Value of x");
 	private JTextField firstNumber  = new JTextField(10);
 	private JLabel displayTextY = new JLabel("Value of y");
 	private JTextField secondNumber = new JTextField(10);
-	public JButton calculateButton = new JButton("=");
+	private JButton calculateButton = new JButton("=");
 	private JTextField calcSolution = new JTextField(10);
 	private ArrayList<String> listButton= new ArrayList<>();
 	private JPanel calcPanel = new JPanel();
-	private JPanel numberPanel = new JPanel(new GridLayout(4, 3));
 	private JButton[] button = new JButton[12];
 	private JButton historyButton = new JButton("History");
 	private ArrayList<Integer> focusLog = new ArrayList<>();
@@ -112,7 +106,9 @@ public class View extends JFrame{
 
 	/**
 	   * This method is used for maintaing history of calculation
-	   * @param firstNumber(double),secondNumber(double),solution(double)
+	   * @param firstNumber(double)
+	   * @param secondNumber(double)
+	   * @param solution(double)
 	   */
 	public void setCalcSolution(double firstNumber,double secondNumber,double solution){
 		calcSolution.setText(Double.toString(solution));
@@ -219,28 +215,30 @@ public class View extends JFrame{
 		}	
 	}
 	
-	/**
-	   * This method is action listner for virtual keyboard
-	   * @param e(ActionEvent)
-	   */
+	
 	ActionListener listener = new ActionListener() {
+		/**
+		   * This method is action listner for virtual keyboard
+		   * @param e(ActionEvent)
+		   */
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() instanceof JButton) {
-            	JButton button = (JButton) e.getSource();
-    			String value = button.getText();
+            	JButton tempbutton = (JButton) e.getSource();
+    			String value = tempbutton.getText();
     			performChanges(value);
             }
         }
     };
     
     
-    /**
-	   * This method is used to launch new Dialogue Box
-	   * This dialogue Box is History Table of calculations in current session
-	   * @param e(ActionEvent)
-	   */
+   
     ActionListener listenerHistory = new ActionListener() {
+    	 /**
+  	   * This method is used to launch new Dialogue Box
+  	   * This dialogue Box is History Table of calculations in current session
+  	   * @param e(ActionEvent)
+  	   */
         @Override
         public void actionPerformed(ActionEvent e) {
             HistoryTable frame = new HistoryTable(historyList);

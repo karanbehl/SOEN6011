@@ -9,18 +9,7 @@ import org.junit.jupiter.api.Test;
 * @since   2019-07-29 
 */
 class TestFunction {
-	
-	Model model;
-	View view;
-	Controller controller;
-	
-	@Before
-	public void setUp()
-	{
-		 model = new Model();
-		 view = new View();
-		 controller = new Controller(view,model);
-	}
+
 	
 	@Test
     public void powerTest() {
@@ -35,6 +24,7 @@ class TestFunction {
 	{
 		assertEquals(Model.functionalCal(1, -1), 1);
 		assertEquals(Model.functionalCal(25, -5), 0.0000001024);
+		assertEquals(Model.functionalCal(2,2),4);
 
 	}
 }

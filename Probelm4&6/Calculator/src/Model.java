@@ -12,7 +12,8 @@ public class Model {
 	
 	/**
 	   * This method is Iterative solution to calculate pow(x, y) using binary operators
-	   * @param x(int), y(int)
+	   * @param x(int)
+	   * @param y(int)
 	   * @return pow(double).
 	   */
 	public static double power(int x, int y){
@@ -36,7 +37,8 @@ public class Model {
 	/**
 	   * This method is for checking y is positive or negative
 	   * It performs calculation according to input
-	   * @param firstNumber(int), secondNumber(int)
+	   * @param firstNumber(int)
+	   * @param secondNumber(int)
 	   * @return (double).
 	   */
 	public static double functionalCal(int firstNumber, int secondNumber)

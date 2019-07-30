@@ -9,17 +9,11 @@ public class Main {
 	/**
 	   * This is the main method which runs app by calling model View and Controller.
 	   * @param args Unused.
-	   * @return Nothing.
 	   */
     public static void main(String[] args) {
-    	
     	View view = new View();
-        
     	Model model = new Model();
-        
         Controller controller = new Controller(view,model);
-        
         view.setVisible(true);
-        
     }
 }

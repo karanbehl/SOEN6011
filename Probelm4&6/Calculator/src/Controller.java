@@ -1,9 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.table.AbstractTableModel;
-
 /**
 * Controller cordinate interaction between View and Model
 * @author  Karan Behl
@@ -14,11 +11,9 @@ import javax.swing.table.AbstractTableModel;
 public class Controller {
 
 	private View theView;
-	private Model theModel;
-
+	
 	public Controller(View theView, Model theModel) {
 		this.theView = theView;
-		this.theModel = theModel;
 		// Tell the View that when ever the calculate button
 		// is clicked to execute the actionPerformed method
 		// in the CalculateListener inner class
@@ -36,7 +31,8 @@ public class Controller {
 
 		public void actionPerformed(ActionEvent e) {
 
-			int firstNumber, secondNumber = 0;
+			int firstNumber = 0;
+			int secondNumber = 0;
 
 			// Surround interactions with the view with
 			// a try block in case numbers weren't
@@ -47,7 +43,6 @@ public class Controller {
 				modelInteraction(firstNumber,secondNumber);
 			}
 			catch(NumberFormatException ex){
-				System.out.println(ex);
 				theView.displayErrorMessage("You Need to Enter 2 Integers");
 			}
 		}
@@ -57,7 +52,7 @@ public class Controller {
 		   * @param firstNumber(int), secondNumber(int)
 		   */
 		public void modelInteraction(int firstNumber, int secondNumber){
-			double result = theModel.functionalCal(firstNumber,secondNumber);
+			double result = Model.functionalCal(firstNumber,secondNumber);
 			theView.setCalcSolution(firstNumber,secondNumber,result);
 		}
 	}
